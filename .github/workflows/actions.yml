@@ -28,6 +28,12 @@ jobs:
       
       - name: execute scrape_middleeasteye 
         run: python scripts/scrape_middleeasteye.py
+
+      - name: Commit and push DB
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
+          git add scripts/newsarticles.db
+          git commit -m "Update database from scheduled scrape"
+          git push
       
-      - name: execute flask app
-        run: python scripts/newsapp.py
