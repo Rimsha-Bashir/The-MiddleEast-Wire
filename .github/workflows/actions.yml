@@ -29,11 +29,12 @@ jobs:
       - name: execute scrape_middleeasteye 
         run: python scripts/scrape_middleeasteye.py
 
-      - name: Commit and push DB
+      - name: Commit and push DB (if changed)
         run: |
           git config --global user.name 'github-actions'
           git config --global user.email 'github-actions@github.com'
+          git add -u
           git add scripts/newsarticles.db
-          git commit -m "Update database from scheduled scrape"
+          git status
+          git commit -m "Update DB after scraping" || echo "No changes to commit"
           git push
-      
