@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block title %} The MiddleEast Wire {% endblock %} <!-- whatever's between the blocks will get replaced in the base file and render -->
+
+{% block content %}
+<div class="row">
+<div class="col-sm-10" style="background-color:rgb(255, 255, 255);">
+<ul class="list-unstyled">
+  {% for a in articles %}
+    <li class="media">
+      <div class="d-flex align-items-start">
+      <img class="img-fluid mr-3" src="{{ a.Image }}" alt="image" style="max-width: 500px;">
+      <div>
+        <h6><a href="{{ a.Link }}" class="link-dark">{{ a.Title }}</a></h6>
+        <p class="font-weight-light">Published on: {{ a.Publish_Date }}</p>
+        <p class="font-weight-light" class="badge badge-primary text-wrap" style="width: 25rem;">{{ a.Description }}</p>
+      </div>
+      </div>
+    </li>
+  {% endfor %}
+  </ul>
+</div>
+<div class="col-sm-2" style="background-color:#ffffff;">
+  <form method="get" class="mb-4">
+    <div class="row">
+      <div class="col-md-4">
+        <label for="source">Source</label>
+        <select name="source" class="form-control">
+          <option value="">All</option>
+          {% for s in sources %}
+          <option value="{{ s }}" {% if request.args.get('source') == s %}selected{% endif %}>{{ s }}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <div class="col-md-4">
+        <label for="keyword">Keyword</label>
+        <select name="keyword" class="form-control">
+          <option value="">All</option>
+          {% for k in keywords %}
+          <option value="{{ k }}" {% if request.args.get('keyword') == k %}selected{% endif %}>{{ k }}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <div class="col-md-4">
+        <label for="topic">Topic</label>
+        <select name="topic" class="form-control">
+          <option value="">All</option>
+          {% for t in topics %}
+          <option value="{{ t }}" {% if request.args.get('topic') == t %}selected{% endif %}>{{ t }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    <div class="row mt-3">
+      <div class="col text-right">
+        <button type="submit" class="btn btn-primary">Apply Filters</button>
+      </div>
+    </div>
+  </div>
+  </form>
+</div>
+</div>
+{% endblock %}
