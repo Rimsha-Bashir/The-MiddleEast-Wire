@@ -24,10 +24,10 @@ jobs:
           pip install -r requirements.txt
           
       - name: execute scrape_aljazeera 
-        run: python scrape_aljazeera.py
+        run: python scripts/scrape_aljazeera.py
       
       - name: execute scrape_middleeasteye 
-        run: python scrape_middleeasteye.py
+        run: python scripts/scrape_middleeasteye.py
       
       - name: execute flask app
-        run: python newsapp.py
+        run: python scripts/newsapp.py
