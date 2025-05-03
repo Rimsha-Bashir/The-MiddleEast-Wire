@@ -7,7 +7,7 @@ from sqlalchemy import desc
 import os 
 
 
-newsapp = Flask(__name__)
+newsapp = Flask(__name__, template_folder=os.path.join(os.path.dirname(__file__), '../templates'))
 bootstrap = Bootstrap4(newsapp)
 basedir = os.path.abspath(os.path.dirname(__file__))
 newsapp.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'newsarticles.db')
