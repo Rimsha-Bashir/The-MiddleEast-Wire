@@ -10,7 +10,7 @@
 
 ### Overview 🔭
 
-The MiddleEast Wire is a curated collection of the latest news articles from around the world, with a strong focus on the Middle Eastern coverage. It extracts content from leading sources like <i>The Middle East Eye</i> and <i>Al Jazeera</i>, presenting them in a clean, searchable interface.
+The MiddleEast Wire is a curated collection of the latest news articles from around the world, with a strong focus on the Middle Eastern coverage. It extracts content from leading sources like <i>Middle East Eye</i> and <i>Al Jazeera</i>, presenting them in a clean, searchable interface.
 
 ### Features 🧬
 
