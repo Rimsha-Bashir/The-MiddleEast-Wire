@@ -1,5 +1,4 @@
 from flask import Flask, redirect, url_for, render_template, request, session
-from flask_bootstrap import Bootstrap4
 from flask_sqlalchemy import SQLAlchemy
 from datetime import date, datetime, timedelta
 from sqlalchemy import desc
@@ -8,7 +7,6 @@ import os
 
 
 newsapp = Flask(__name__, template_folder=os.path.join(os.path.dirname(__file__), '../templates'))
-bootstrap = Bootstrap4(newsapp)
 basedir = os.path.abspath(os.path.dirname(__file__))
 newsapp.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'newsarticles.db')
 newsapp.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
